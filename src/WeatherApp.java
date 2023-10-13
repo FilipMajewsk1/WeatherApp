@@ -62,7 +62,7 @@ public class WeatherApp {
                     case "24-Hour Forecast":
                         result = fetch24HourForecast(cityKey);
                         break;
-                    default: // "Current Weather"
+                    default:
                         result = fetchWeather(cityKey);
                         break;
                 }
