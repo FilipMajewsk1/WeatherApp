@@ -18,7 +18,7 @@ public class WeatherApp {
     private static final String FORECAST_5DAY_URL = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
     private static final String FORECAST_12HOUR_URL = "http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/";
     private static final String FORECAST_24HOUR_URL = "http://dataservice.accuweather.com/forecasts/v1/hourly/24hour/";
-    private static final String FORECAST_15DAY_URL = "http://dataservice.accuweather.com/forecasts/v1/daily/55day/";
+    private static final String FORECAST_15DAY_URL = "http://dataservice.accuweather.com/forecasts/v1/daily/15day/";
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Weather App");
@@ -113,7 +113,7 @@ public class WeatherApp {
             String weatherText = weatherObj.getString("WeatherText");
             double temperature = weatherObj.getJSONObject("Temperature").getJSONObject("Metric").getDouble("Value");
 
-            return String.format("Weather: %s\nTemperature: %.2f°C", weatherText, temperature);
+            return String.format("Weather: %s\nTemperature: %.2fF", weatherText, temperature);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -142,7 +142,7 @@ public class WeatherApp {
                 double min = temperature.getJSONObject("Minimum").getDouble("Value");
                 double max = temperature.getJSONObject("Maximum").getDouble("Value");
 
-                forecastBuilder.append(String.format("Date: %s, Min: %.2f°C, Max: %.2f°C\n", date, min, max));
+                forecastBuilder.append(String.format("Date: %s, Min: %.2fF, Max: %.2fF\n", date, min, max));
             }
 
             return forecastBuilder.toString();
@@ -202,7 +202,7 @@ public class WeatherApp {
                 double min = temperature.getJSONObject("Minimum").getDouble("Value");
                 double max = temperature.getJSONObject("Maximum").getDouble("Value");
 
-                forecastBuilder.append(String.format("Date: %s, Min: %.2f°C, Max: %.2f°C\n", date, min, max));
+                forecastBuilder.append(String.format("Date: %s, Min: %.2fF, Max: %.2fF\n", date, min, max));
             }
 
             return forecastBuilder.toString();
